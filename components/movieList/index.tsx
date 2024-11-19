@@ -41,7 +41,9 @@ export default function MovieList() {
           setHasMore(false);
         }
       } catch (err) {
-        setError("Oops! Something went wrong while fetching movies.");
+        setError(
+          "Oops! Something went wrong while fetching movies or maybe it your internet."
+        );
         console.log(err);
         setLoading(false);
       }
