@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MovieCard from "../movieList/MovieCard";
 
 interface MovieDetails {
@@ -12,8 +12,16 @@ interface MovieDetails {
 }
 
 export default function FavoriteMovieList() {
-  const data: string | null = localStorage.getItem("faveMovies");
-  const parsedData = JSON.parse(data ?? "[]");
+  const [favorites, setFavorites] = useState<Array<MovieDetails>>([]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.localStorage) {
+      const savedFavorites = localStorage.getItem("faveMovies");
+      if (savedFavorites) {
+        setFavorites(JSON.parse(savedFavorites));
+      }
+    }
+  }, []);
 
   return (
     <section>
@@ -22,13 +30,13 @@ export default function FavoriteMovieList() {
           <h1 className="text-3xl font-bold text-white mb-8">
             Favorite Movies
           </h1>
-          {parsedData.length === 0 ? (
+          {favorites.length === 0 ? (
             <div className="flex justify-center items-center text-[white]">
               <p>You&apos;ve not add any movie to favorite</p>
             </div>
           ) : (
             <div className="grid gap-6 grid-cols-5 sm:grid-cols-[1fr_1fr] md:grid-cols-3">
-              {parsedData.map((movie: MovieDetails, index: number) => (
+              {favorites.map((movie: MovieDetails, index: number) => (
                 <MovieCard
                   key={index}
                   id={movie.id}
