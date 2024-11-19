@@ -97,7 +97,7 @@ export default function MovieList() {
       <div className="min-h-screen bg-gray-900 py-10">
         <div className="max-w-6xl mx-auto px-4">
           <h1 className="text-3xl font-bold text-white mb-8">Latest Movies</h1>
-          <div className="grid gap-6 grid-cols-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          <div className="grid gap-6 grid-cols-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5">
             {data.map((movie, index: number) => (
               <MovieCard
                 key={index}
