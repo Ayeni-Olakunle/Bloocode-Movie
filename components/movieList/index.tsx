@@ -20,7 +20,6 @@ export default function MovieList() {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const observerRef = useRef<IntersectionObserver | null>(null);
-  const token = process.env.NEXT_PUBLIC_TOKEN;
 
   const fetchMovies = useCallback(
     async (page: number) => {
@@ -30,8 +29,7 @@ export default function MovieList() {
           `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc`,
           {
             headers: {
-              Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZTg2MGI4YWFlMjU3NzZiMjdjYTVhOTZkYmUyNmMzMyIsIm5iZiI6MTczMTkzNDk5MC45NjA3MjY3LCJzdWIiOiI2NzNiMWM2MTczYTQ1ZTUxODRiZmE0YTgiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.7-BptNNuX9kdBgWN6-yXb-pDRYcnOxRf36zXs2o4s8s`,
-              //   Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
             },
           }
         );
@@ -44,11 +42,11 @@ export default function MovieList() {
         }
       } catch (err) {
         setError("Oops! Something went wrong while fetching movies.");
-        console.log(err);        
+        console.log(err);
         setLoading(false);
       }
     },
-    [token]
+    [process.env.NEXT_PUBLIC_TOKEN]
   );
 
   useEffect(() => {

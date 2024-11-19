@@ -20,8 +20,6 @@ interface MovieDetails {
   genres: Genre[];
 }
 
-const API_TOKEN = process.env.NEXT_PUBLIC_TOKEN;
-
 export default function Details() {
   const [movie, setMovie] = useState<MovieDetails | null>(null);
   const [loading, setLoading] = useState(true);
@@ -38,7 +36,7 @@ export default function Details() {
           `https://api.themoviedb.org/3/movie/${movieId}`,
           {
             headers: {
-              Authorization: `Bearer ${API_TOKEN}`,
+              Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
             },
           }
         );
