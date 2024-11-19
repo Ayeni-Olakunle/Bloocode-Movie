@@ -30,7 +30,8 @@ export default function MovieList() {
           `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc`,
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZTg2MGI4YWFlMjU3NzZiMjdjYTVhOTZkYmUyNmMzMyIsIm5iZiI6MTczMTkzNDk5MC45NjA3MjY3LCJzdWIiOiI2NzNiMWM2MTczYTQ1ZTUxODRiZmE0YTgiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.7-BptNNuX9kdBgWN6-yXb-pDRYcnOxRf36zXs2o4s8s`,
+              //   Authorization: `Bearer ${token}`,
             },
           }
         );
