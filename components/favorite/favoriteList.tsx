@@ -35,7 +35,7 @@ export default function FavoriteMovieList() {
               <p>You&apos;ve not add any movie to favorite</p>
             </div>
           ) : (
-            <div className="grid gap-6 grid-cols-5 sm:grid-cols-[1fr_1fr] md:grid-cols-3">
+            <div className="grid gap-6 grid-cols-5 sm:grid-cols-[1fr_1fr] md:grid-cols-2">
               {favorites.map((movie: MovieDetails, index: number) => (
                 <MovieCard
                   key={index}
