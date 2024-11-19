@@ -24,7 +24,7 @@ export default function FavoriteMovieList() {
           </h1>
           {parsedData.length === 0 ? (
             <div className="flex justify-center items-center text-[white]">
-              <p>You've not add any movie to favorite</p>
+              <p>You&apos;ve not add any movie to favorite</p>
             </div>
           ) : (
             <div className="grid gap-6 grid-cols-5 sm:grid-cols-[1fr_1fr] md:grid-cols-3">

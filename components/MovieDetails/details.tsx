@@ -45,6 +45,8 @@ export default function Details() {
         setMovie(response.data);
       } catch (err) {
         setError("Failed to fetch movie details.");
+        console.log(err);
+        
       } finally {
         setLoading(false);
       }

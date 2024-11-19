@@ -43,6 +43,7 @@ export default function MovieList() {
         }
       } catch (err) {
         setError("Oops! Something went wrong while fetching movies.");
+        console.log(err);        
         setLoading(false);
       }
     },
